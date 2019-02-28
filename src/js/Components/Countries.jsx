@@ -1,4 +1,5 @@
 import React from "react";
+import { CountryInfo } from "./CountryInfo.jsx";
 
 export class Countries extends React.Component {
   constructor(props) {
@@ -63,7 +64,7 @@ export class Countries extends React.Component {
   };
 
   render() {
-    const { countriesData } = this.state;
+    const { countriesData, countryDataToDisplay } = this.state;
     let countries;
 
     if (countriesData.length) {
@@ -74,9 +75,11 @@ export class Countries extends React.Component {
 
     return (
       <main className="container">
-        {countries}
+        {/* {countries} */}
         <div>
-          <CountryInfo countryInfo={countryDataToDisplay} />
+          {countryDataToDisplay.length ? (
+            <CountryInfo countryInfo={countryDataToDisplay} />
+          ) : null}
         </div>
       </main>
     );
