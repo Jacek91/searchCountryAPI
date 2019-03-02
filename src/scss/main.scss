@@ -34,3 +34,26 @@ body {
     text-transform: lowercase;
   }
 }
+
+.searchbar {
+  text-align: center;
+  width: 100%;
+  background-color: #428d90;
+  border-bottom: rgba(158, 158, 158, 0.5);
+
+  .searchbar_input {
+    margin: 30px auto;
+    width: 350px;
+    background-color: #fafafa;
+    font-size: 18px;
+    padding: 10px 0;
+    border: none;
+    color: #276063;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14),
+        0 3px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 3px -2px rgba(0, 0, 0, 0.2) inset;
+    }
+  }
+}

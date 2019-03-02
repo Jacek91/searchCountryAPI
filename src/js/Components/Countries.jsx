@@ -1,5 +1,6 @@
 import React from "react";
 import { CountryInfo } from "./CountryInfo.jsx";
+import { SearchBar } from "./SearchBar.jsx";
 
 export class Countries extends React.Component {
   constructor(props) {
@@ -77,6 +78,11 @@ export class Countries extends React.Component {
       <main className="container">
         {/* {countries} */}
         <div>
+          {countriesData ? (
+            <SearchBar countriesData={countriesData} />
+          ) : (
+            <p>Loading ...</p>
+          )}
           {countryDataToDisplay.length ? (
             <CountryInfo countryInfo={countryDataToDisplay} />
           ) : null}
