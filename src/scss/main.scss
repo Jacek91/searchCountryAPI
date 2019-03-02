@@ -57,3 +57,46 @@ body {
     }
   }
 }
+
+.country_info {
+  display: flex;
+  justify-content: space-between;
+
+  .countryinfo_left {
+    width: 40%;
+    background-color: #fafafa;
+    padding-left: 30px;
+    padding-top: 10px;
+
+    .flag {
+      img {
+        margin: 15px 0;
+        width: 90%;
+      }
+    }
+  }
+
+  .countryinfo_right {
+    width: 60%;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    background-color: #fafafa;
+    position: relative;
+
+    &:before {
+      content: "";
+      color: black;
+      border-right: 1px solid rgba(0, 0, 0, 0.24);
+      font-size: 10px;
+      height: 85%;
+      position: absolute;
+      top: 25px;
+    }
+
+    .info {
+      display: inline-block;
+      padding: 0 30px;
+      width: 50%;
+    }
+  }
+}
