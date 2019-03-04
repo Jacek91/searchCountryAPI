@@ -14,7 +14,22 @@ export class SearchBar extends React.Component {
       searchWord: word
     });
 
-    // word.length >= 3 ? this.filterCountriesData(word) : null;
+    word.length >= 3 ? this.filterCountriesData(word) : null;
+  };
+
+  filterCountriesData = searchWord => {
+    const countries = this.props.countriesData.slice();
+    let countriesProposition = countries
+      .filter(e => {
+        return e.country[0].name
+          .toLowerCase()
+          .includes(searchWord.toLowerCase());
+      })
+      .map(e => {
+        return e.country[0].name;
+      });
+
+    console.log(countriesProposition);
   };
 
   render() {

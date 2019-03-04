@@ -6,7 +6,6 @@ export class CountryInfo extends React.Component {
     let area;
     let population;
     if (countryInfo) {
-      console.log(countryInfo[0].population);
       population = countryInfo[0].population;
       area = countryInfo[0].area;
     }
