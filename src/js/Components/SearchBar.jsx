@@ -4,7 +4,9 @@ export class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchWord: ""
+      searchWord: "",
+      countryPropositions: "",
+      propositionsList: ""
     };
   }
 
@@ -29,11 +31,47 @@ export class SearchBar extends React.Component {
         return e.country[0].name;
       });
 
-    console.log(countriesProposition);
+    this.createPropositionList(countriesProposition, searchWord);
+  };
+
+  createPropositionList = (countries, searchWord) => {
+    let propositions =
+      countries.length >= 1 ? (
+        countries.map((country, id) => {
+          let word = searchWord.toLowerCase();
+          let startIndex = country.toLowerCase().indexOf(word);
+          let endIndex = word.length + startIndex;
+          let begining = country.slice(0, startIndex);
+          let middle = country.slice(startIndex, endIndex);
+          let end = country.slice(word.length + startIndex);
+          return (
+            <li
+              key={country + id}
+              onClick={e => this.handleOnChose(e, country)}
+              className="searchbar_list_item"
+            >
+              {begining}
+              <span style={{ fontWeight: "bold", fontFamily: "inherit" }}>
+                {middle}
+              </span>
+              {end}
+            </li>
+          );
+        })
+      ) : (
+        <li className="searchbar_list_item">This country doesn't exist.</li>
+      );
+
+    console.log(countries, propositions);
+
+    this.setState({
+      countryPropositions: countries,
+      propositionsList: propositions
+    });
   };
 
   render() {
-    const { searchWord } = this.state;
+    const { searchWord, propositionsList } = this.state;
     return (
       <section className="searchbar">
         <input
@@ -44,7 +82,13 @@ export class SearchBar extends React.Component {
           tabIndex="0"
           placeholder="Type Country name in english"
         />
-        <ul style={{ display: "block" }} className="searchbar_list" />
+        <ul
+          style={{ display: searchWord.length >= 3 ? "block" : "none" }}
+          className="searchbar_list"
+          ref="propList"
+        >
+          {propositionsList}
+        </ul>
       </section>
     );
   }
