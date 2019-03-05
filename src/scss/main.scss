@@ -56,6 +56,37 @@ body {
         0 3px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 3px -2px rgba(0, 0, 0, 0.2) inset;
     }
   }
+
+  .searchbar_list {
+    width: 350px;
+    margin: -30px auto;
+    position: absolute;
+    right: 0;
+    left: 0;
+    background: #fafafa;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+      0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    z-index: 2;
+
+    .searchbar_list_item {
+      line-height: 36px;
+      list-style: none;
+      border-bottom: 1px solid #e6e6e6;
+      font-weight: 400;
+      width: 100%;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #409aa7;
+        color: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    .searchbar_list_item:last-child {
+      border-bottom: none;
+    }
+  }
 }
 
 .country_info {
