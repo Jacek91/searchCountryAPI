@@ -49,6 +49,7 @@ export class Countries extends React.Component {
   getCountryData = chosenCountry => {
     const { countriesData } = this.state;
     let countryDataToDisplay = [];
+
     if (countriesData) {
       countryDataToDisplay = countriesData
         .filter(e => {
@@ -83,20 +84,20 @@ export class Countries extends React.Component {
 
     return (
       <main className="container">
-        {/* {countries} */}
-        <div>
-          {countriesData ? (
-            <SearchBar
-              countriesData={countriesData}
-              handleChosenCountry={this.handleChosenCountry}
-            />
-          ) : (
-            <p>Loading ...</p>
-          )}
-          {chosenCountry && countryDataToDisplay.length ? (
+        {countriesData ? (
+          <SearchBar
+            countriesData={countriesData}
+            handleChosenCountry={this.handleChosenCountry}
+            scrollToMap={this.scrollToMyRef}
+          />
+        ) : (
+          <p>Loading ...</p>
+        )}
+        {chosenCountry && countryDataToDisplay ? (
+          <div className="content">
             <CountryInfo countryInfo={countryDataToDisplay} />
-          ) : null}
-        </div>
+          </div>
+        ) : null}
       </main>
     );
   }

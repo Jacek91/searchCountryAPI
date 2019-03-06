@@ -5,8 +5,7 @@ export class SearchBar extends React.Component {
     super(props);
     this.state = {
       searchWord: "",
-      countryPropositions: "",
-      propositionsList: ""
+      propositionsList: []
     };
   }
 
@@ -20,7 +19,7 @@ export class SearchBar extends React.Component {
   };
 
   filterCountriesData = searchWord => {
-    const countries = this.props.countriesData.slice();
+    const countries = this.props.countriesData;
     let countriesProposition = countries
       .filter(e => {
         return e.country[0].name
@@ -63,19 +62,17 @@ export class SearchBar extends React.Component {
       );
 
     this.setState({
-      countryPropositions: countries,
       propositionsList: propositions
     });
   };
 
-  handleOnChose = (event, el) => {
+  handleOnChose = (event, country) => {
     event.preventDefault();
     const { handleChosenCountry } = this.props;
 
-    handleChosenCountry(el);
+    handleChosenCountry(country);
 
     this.setState({
-      countryPropositions: "",
       searchWord: ""
     });
   };
