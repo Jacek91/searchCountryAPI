@@ -64,26 +64,36 @@ export class Countries extends React.Component {
     });
   };
 
-  render() {
-    const { countriesData, countryDataToDisplay } = this.state;
-    let countries;
+  handleChosenCountry = country => {
+    this.setState({
+      chosenCountry: country
+    });
 
-    if (countriesData.length) {
-      countries = countriesData.map((country, index) => (
-        <h1 key={index}>{country.country[0].name}</h1>
-      ));
-    }
+    this.getCountryData(country);
+  };
+
+  render() {
+    const { countriesData, chosenCountry, countryDataToDisplay } = this.state;
+
+    // if (countriesData.length) {
+    //   countries = countriesData.map((country, index) => (
+    //     <h1 key={index}>{country.country[0].name}</h1>
+    //   ));
+    // }
 
     return (
       <main className="container">
         {/* {countries} */}
         <div>
           {countriesData ? (
-            <SearchBar countriesData={countriesData} />
+            <SearchBar
+              countriesData={countriesData}
+              handleChosenCountry={this.handleChosenCountry}
+            />
           ) : (
             <p>Loading ...</p>
           )}
-          {countryDataToDisplay.length ? (
+          {chosenCountry && countryDataToDisplay.length ? (
             <CountryInfo countryInfo={countryDataToDisplay} />
           ) : null}
         </div>

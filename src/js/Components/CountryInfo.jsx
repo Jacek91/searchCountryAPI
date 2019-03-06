@@ -1,14 +1,26 @@
 import React from "react";
 
 export class CountryInfo extends React.Component {
+  formatNumber = num => {
+    const number = num;
+    let counter = 1;
+    let result = [];
+    const numberArray = number.toString().split("");
+    for (let i = numberArray.length - 1; i >= 0; i--) {
+      result.push(numberArray[i]);
+      if (counter % 3 === 0 && i !== 0) {
+        result.push(".");
+      }
+      counter++;
+    }
+    result.reverse().join();
+    return result;
+  };
+
   render() {
     const { countryInfo } = this.props;
-    let area;
-    let population;
-    if (countryInfo) {
-      population = countryInfo[0].population;
-      area = countryInfo[0].area;
-    }
+    const area = this.formatNumber(countryInfo[0].area);
+    const population = this.formatNumber(countryInfo[0].population);
     return (
       <section className="country_info">
         <div className="countryinfo_left">

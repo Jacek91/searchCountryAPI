@@ -62,11 +62,21 @@ export class SearchBar extends React.Component {
         <li className="searchbar_list_item">This country doesn't exist.</li>
       );
 
-    console.log(countries, propositions);
-
     this.setState({
       countryPropositions: countries,
       propositionsList: propositions
+    });
+  };
+
+  handleOnChose = (event, el) => {
+    event.preventDefault();
+    const { handleChosenCountry } = this.props;
+
+    handleChosenCountry(el);
+
+    this.setState({
+      countryPropositions: "",
+      searchWord: ""
     });
   };
 
