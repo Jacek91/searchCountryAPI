@@ -6,152 +6,160 @@
   padding: 0;
 }
 
-html {
-  font-size: 16px;
+body {
+  background-color: rgba(148, 177, 217, 0.21);
 }
 
-body {
+.container {
   font-family: "Roboto", sans-serif;
-  background-color: rgba(148, 177, 217, 0.21);
   color: black;
 }
 
-#app {
-  width: 100%;
-}
-
 .header {
-  padding: 20px;
+  padding: 25px;
   font-weight: 400;
-  background-color: #006064;
+  background-color: $headerBgc;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
     0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
 
-  .header_title {
-    text-align: center;
-    font-size: 36px;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 36px;
-  }
+.header__title {
+  text-align: center;
+  font-size: 36px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 36px;
+  padding-bottom: 5px;
+}
 
-  .header_subtitle {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.7);
-    padding-top: 5px;
-    font-size: 24px;
-    line-height: 24px;
-    font-weight: 300;
-    text-transform: lowercase;
-  }
+.header__subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 5px;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 300;
+  text-transform: lowercase;
 }
 
 .searchbar {
   text-align: center;
   width: 100%;
-  background-color: #428d90;
+  background-color: $searchBarBgc;
   border-bottom: rgba(158, 158, 158, 0.5);
+}
 
-  .searchbar_input {
-    margin: 30px auto;
-    width: 350px;
-    background-color: #fafafa;
-    font-size: 18px;
-    padding: 10px 0;
-    border: none;
-    color: #276063;
+.searchbar__input {
+  margin: 30px auto;
+  width: 350px;
+  background-color: $mainBgc;
+  font-size: 18px;
+  padding: 10px 0;
+  border: none;
+  color: $searchBarInput;
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14),
-        0 3px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 3px -2px rgba(0, 0, 0, 0.2) inset;
-    }
-  }
-
-  .searchbar_list {
-    width: 350px;
-    margin: -30px auto;
-    position: absolute;
-    right: 0;
-    left: 0;
-    background: #fafafa;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
-      0 3px 1px -2px rgba(0, 0, 0, 0.2);
-    padding: 0;
-    z-index: 2;
-
-    .searchbar_list_item {
-      line-height: 36px;
-      list-style: none;
-      border-bottom: 1px solid #e6e6e6;
-      font-weight: 400;
-      width: 100%;
-
-      &:hover {
-        cursor: pointer;
-        background-color: #409aa7;
-        color: rgba(255, 255, 255, 0.9);
-      }
-    }
-
-    .searchbar_list_item:last-child {
-      border-bottom: none;
-    }
+  &:focus {
+    outline: none;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.12),
+      0 3px 3px -2px rgba(0, 0, 0, 0.2) inset;
   }
 }
 
-.content {
+.searchbar__list {
+  width: 350px;
+  margin: -30px auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+  background: $mainBgc;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  z-index: 2;
+}
+
+.searchbar__list--item {
+  line-height: 36px;
+  list-style: none;
+  border-bottom: 1px solid #e6e6e6;
+  font-weight: 400;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $hoverColor;
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.searchbar__list--item:last-child {
+  border-bottom: none;
+}
+
+.main {
   width: 70%;
   margin: 25px auto;
   box-shadow: 0px 2px 30px -1px rgba(0, 96, 100, 1);
+}
 
-  .country_info {
-    display: flex;
-    justify-content: space-between;
+.countryinfo {
+  display: flex;
+  justify-content: space-between;
+  background-color: $mainBgc;
+}
 
-    .countryinfo_left {
-      width: 40%;
-      background-color: #fafafa;
-      padding-left: 30px;
-      padding-top: 10px;
+.countryinfo__left {
+  width: 40%;
+  padding-left: 30px;
+  padding-top: 10px;
+}
 
-      .flag {
-        img {
-          margin: 15px 0;
-          width: 90%;
-        }
-      }
-    }
+.countryinfo__img {
+  margin: 15px 0;
+  width: 90%;
+}
 
-    .countryinfo_right {
-      width: 60%;
-      padding-top: 10px;
-      padding-bottom: 15px;
-      background-color: #fafafa;
-      position: relative;
+.countryinfo__right {
+  width: 60%;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  position: relative;
 
-      &:before {
-        content: "";
-        color: black;
-        border-right: 1px solid rgba(0, 0, 0, 0.24);
-        font-size: 10px;
-        height: 85%;
-        position: absolute;
-        top: 25px;
-      }
-
-      .info {
-        display: inline-block;
-        padding: 0 30px;
-        width: 50%;
-
-        & + .info {
-          margin-bottom: 20px;
-        }
-
-        p {
-          padding-top: 5px;
-        }
-      }
-    }
+  &:before {
+    content: "";
+    color: black;
+    border-right: 1px solid rgba(0, 0, 0, 0.24);
+    font-size: 10px;
+    height: 85%;
+    position: absolute;
+    top: 25px;
   }
 }
+
+.countryinfo__info {
+  display: inline-block;
+  padding: 0 30px;
+  width: 50%;
+
+  & + .info {
+    margin-bottom: 20px;
+  }
+}
+
+.countryinfo__info__left {
+  padding: 0;
+}
+
+.countryinfo__header {
+  margin-top: 15px;
+  font-weight: 400;
+  line-height: 2em;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.countryinfo__text {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+@import "./RWD";

@@ -21,13 +21,13 @@ export class SearchBar extends React.Component {
   filterCountriesData = searchWord => {
     const countries = this.props.countriesData;
     let countriesProposition = countries
-      .filter(e => {
-        return e.country[0].name
+      .filter(element => {
+        return element.country[0].name
           .toLowerCase()
           .includes(searchWord.toLowerCase());
       })
-      .map(e => {
-        return e.country[0].name;
+      .map(element => {
+        return element.country[0].name;
       });
 
     this.createPropositionList(countriesProposition, searchWord);
@@ -47,7 +47,7 @@ export class SearchBar extends React.Component {
             <li
               key={country + id}
               onClick={e => this.handleOnChose(e, country)}
-              className="searchbar_list_item"
+              className="searchbar__list--item"
             >
               {begining}
               <span style={{ fontWeight: "bold", fontFamily: "inherit" }}>
@@ -58,7 +58,7 @@ export class SearchBar extends React.Component {
           );
         })
       ) : (
-        <li className="searchbar_list_item">This country doesn't exist.</li>
+        <li className="searchbar__list--item">This country doesn't exist.</li>
       );
 
     this.setState({
@@ -83,7 +83,7 @@ export class SearchBar extends React.Component {
       <section className="searchbar">
         <input
           type="text"
-          className="searchbar_input"
+          className="searchbar__input"
           value={searchWord}
           onChange={this.handlSearchOnChange}
           tabIndex="0"
@@ -91,7 +91,7 @@ export class SearchBar extends React.Component {
         />
         <ul
           style={{ display: searchWord.length >= 3 ? "block" : "none" }}
-          className="searchbar_list"
+          className="searchbar__list"
           ref="propList"
         >
           {propositionsList}

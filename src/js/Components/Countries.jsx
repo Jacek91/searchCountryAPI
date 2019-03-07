@@ -52,11 +52,11 @@ export class Countries extends React.Component {
 
     if (countriesData) {
       countryDataToDisplay = countriesData
-        .filter(e => {
-          return e.country[0].name.includes(chosenCountry);
+        .filter(element => {
+          return element.country[0].name.includes(chosenCountry);
         })
-        .map(e => {
-          return e.country[0];
+        .map(element => {
+          return element.country[0];
         });
     }
 
@@ -76,14 +76,8 @@ export class Countries extends React.Component {
   render() {
     const { countriesData, chosenCountry, countryDataToDisplay } = this.state;
 
-    // if (countriesData.length) {
-    //   countries = countriesData.map((country, index) => (
-    //     <h1 key={index}>{country.country[0].name}</h1>
-    //   ));
-    // }
-
     return (
-      <main className="container">
+      <>
         {countriesData ? (
           <SearchBar
             countriesData={countriesData}
@@ -94,11 +88,11 @@ export class Countries extends React.Component {
           <p>Loading ...</p>
         )}
         {chosenCountry && countryDataToDisplay ? (
-          <div className="content">
+          <section className="main">
             <CountryInfo countryInfo={countryDataToDisplay} />
-          </div>
+          </section>
         ) : null}
-      </main>
+      </>
     );
   }
 }

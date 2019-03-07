@@ -22,48 +22,54 @@ export class CountryInfo extends React.Component {
     const area = this.formatNumber(countryInfo[0].area);
     const population = this.formatNumber(countryInfo[0].population);
     return (
-      <section className="country_info">
-        <div className="countryinfo_left">
-          <div className="info">
-            <h2>country</h2>
-            <p>{countryInfo[0].name}</p>
+      <div className="countryinfo">
+        <div className="countryinfo__left">
+          <div className="countryinfo__info countryinfo__info__left ">
+            <h2 className="countryinfo__header countryinfo__info__left">
+              country
+            </h2>
+            <p className="countryinfo__text countryinfo__info__left">
+              {countryInfo[0].name}
+            </p>
           </div>
-          <div className="flag">
-            <img src={countryInfo[0].flag} />
+          <div className="countryinfo__flag">
+            <img className="countryinfo__img" src={countryInfo[0].flag} />
           </div>
         </div>
-        <div className="countryinfo_right">
-          <div className="info">
-            <h2>capital</h2>
-            <p>{countryInfo[0].capital}</p>
+        <div className="countryinfo__right">
+          <div className="countryinfo__info">
+            <h2 className="countryinfo__header">capital</h2>
+            <p className="countryinfo__text">{countryInfo[0].capital}</p>
           </div>
-          <div className="info">
-            <h2>subregion</h2>
-            <p>{countryInfo[0].subregion}</p>
+          <div className="countryinfo__info">
+            <h2 className="countryinfo__header">subregion</h2>
+            <p className="countryinfo__text">{countryInfo[0].subregion}</p>
           </div>
-          <div className="info">
-            <h2>population</h2>
-            <p>{population}</p>
+          <div className="countryinfo__info">
+            <h2 className="countryinfo__header">population</h2>
+            <p className="countryinfo__text">{population}</p>
           </div>
-          <div className="info">
-            <h2>
+          <div className="countryinfo__info">
+            <h2 className="countryinfo__header">
               area km<sup>2</sup>
             </h2>
-            <p>{area}</p>
+            <p className="countryinfo__text">{area}</p>
           </div>
-          <div className="info">
-            <h2>currencies</h2>
-            <p>
+          <div className="countryinfo__info">
+            <h2 className="countryinfo__header">currencies</h2>
+            <p className="countryinfo__text">
               {countryInfo[0].currencies[0].name}-
               {countryInfo[0].currencies[0].symbol}{" "}
             </p>
           </div>
-          <div className="info">
-            <h2>language</h2>
-            <p>{countryInfo[0].languages[0].name}</p>
+          <div className="countryinfo__info">
+            <h2 className="countryinfo__header">language</h2>
+            <p className="countryinfo__text">
+              {countryInfo[0].languages[0].name}
+            </p>
           </div>
         </div>
-      </section>
+      </div>
     );
   }
 }
