@@ -1,6 +1,7 @@
 import React from "react";
 import { CountryInfo } from "./CountryInfo.jsx";
 import { SearchBar } from "./SearchBar.jsx";
+import { SimpleMap } from "./Map.jsx";
 
 export class Countries extends React.Component {
   constructor(props) {
@@ -75,7 +76,12 @@ export class Countries extends React.Component {
 
   render() {
     const { countriesData, chosenCountry, countryDataToDisplay } = this.state;
-
+    const center = countryDataToDisplay
+      ? {
+          lat: countryDataToDisplay[0].latlng[0],
+          lng: countryDataToDisplay[0].latlng[1]
+        }
+      : null;
     return (
       <>
         {countriesData ? (
@@ -90,6 +96,9 @@ export class Countries extends React.Component {
         {chosenCountry && countryDataToDisplay ? (
           <section className="main">
             <CountryInfo countryInfo={countryDataToDisplay} />
+            <div className="map" id="map">
+              <SimpleMap centerMap={center} />
+            </div>
           </section>
         ) : null}
       </>
