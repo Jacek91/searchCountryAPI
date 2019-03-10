@@ -1,5 +1,4 @@
 import React from "react";
-
 export class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -58,8 +57,8 @@ export class SearchBar extends React.Component {
           );
         })
       ) : (
-        <li className="searchbar__list--item">This country doesn't exist.</li>
-      );
+          <li className="searchbar__list--item">This country doesn't exist.</li>
+        );
 
     this.setState({
       propositionsList: propositions
@@ -68,9 +67,10 @@ export class SearchBar extends React.Component {
 
   handleOnChose = (event, country) => {
     event.preventDefault();
-    const { handleChosenCountry } = this.props;
+    const { handleChosenCountry, scrollToMap } = this.props;
 
     handleChosenCountry(country);
+    scrollToMap();
 
     this.setState({
       searchWord: ""
@@ -87,7 +87,7 @@ export class SearchBar extends React.Component {
           value={searchWord}
           onChange={this.handlSearchOnChange}
           tabIndex="0"
-          placeholder="Type Country name in english"
+          placeholder="Type Country name in english..."
         />
         <ul
           style={{ display: searchWord.length >= 3 ? "block" : "none" }}

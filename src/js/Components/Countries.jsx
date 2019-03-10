@@ -6,6 +6,7 @@ import { SimpleMap } from "./Map.jsx";
 export class Countries extends React.Component {
   constructor(props) {
     super(props);
+    this.myRef = null;
     this.state = {
       countriesData: "",
       chosenCountry: "Poland",
@@ -74,13 +75,15 @@ export class Countries extends React.Component {
     this.getCountryData(country);
   };
 
+  scrollToMyRef = () => window.scrollTo(0, this.myRef.offsetTop);
+
   render() {
     const { countriesData, chosenCountry, countryDataToDisplay } = this.state;
     const center = countryDataToDisplay
       ? {
-          lat: countryDataToDisplay[0].latlng[0],
-          lng: countryDataToDisplay[0].latlng[1]
-        }
+        lat: countryDataToDisplay[0].latlng[0],
+        lng: countryDataToDisplay[0].latlng[1]
+      }
       : null;
     return (
       <>
@@ -91,8 +94,8 @@ export class Countries extends React.Component {
             scrollToMap={this.scrollToMyRef}
           />
         ) : (
-          <p>Loading ...</p>
-        )}
+            <p>Loading ...</p>
+          )}
         {chosenCountry && countryDataToDisplay ? (
           <section className="main">
             <CountryInfo countryInfo={countryDataToDisplay} />
@@ -101,6 +104,7 @@ export class Countries extends React.Component {
             </div>
           </section>
         ) : null}
+        <div ref={ref => (this.myRef = ref)} />
       </>
     );
   }

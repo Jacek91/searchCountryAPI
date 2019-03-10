@@ -1,5 +1,4 @@
 import React from "react";
-
 export class CountryInfo extends React.Component {
   formatNumber = num => {
     const number = num;
